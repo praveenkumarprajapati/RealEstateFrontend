@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Route, Switch, Link } from 'react-router-dom';
+import Home from './Home'
+import CreateNewP from './CreateNewP'
+import EditP from './EditP'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <nav className="navbar bg-info navbar-light navbar-expand">
+        <ul className="navbar-nav">
+          <li className="navbar-item mx-4">
+            <Link to="/" className="nav-link">Home</Link>
+          </li>
+
+          <li className="navbar-item mx-4">
+            <Link to="/createProp" className="nav-link">Create New</Link>
+          </li>
+        </ul>
+
+      </nav>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/createProp">
+          <CreateNewP />
+        </Route>
+        <Route path="/editProp/:id">
+          <EditP />
+        </Route>
+      </Switch>
+
     </div>
   );
 }
