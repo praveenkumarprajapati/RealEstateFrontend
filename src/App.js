@@ -1,38 +1,28 @@
-
-import './App.css';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './Home'
-import CreateNewP from './CreateNewP'
-import EditP from './EditP'
+import CreateAdvertisement from './CreateAdvertisement'
+import ShowAdvertisement from './ShowAdvertisement'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 function App() {
   return (
 
     <div>
-      <nav className="navbar bg-info navbar-light navbar-expand">
-        <ul className="navbar-nav">
-          <li className="navbar-item mx-4">
-            <Link to="/" className="nav-link">Home</Link>
-          </li>
-
-          <li className="navbar-item mx-4">
-            <Link to="/createProp" className="nav-link">Create New</Link>
-          </li>
-        </ul>
-
-      </nav>
+      <Navbar />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/createProp">
-          <CreateNewP />
+        <Route path="/createAdvertisement">
+          <CreateAdvertisement />
         </Route>
-        <Route path="/editProp/:id">
-          <EditP />
+        <Route path="/showAdvertisement/:id">
+          <ShowAdvertisement />
         </Route>
       </Switch>
 
+      <Footer />
     </div>
   );
 }

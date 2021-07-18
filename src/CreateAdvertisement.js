@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-const CreateNewP = () => {
+const CreateAdvertisement = () => {
 
     const { register, handleSubmit } = useForm()
 
@@ -53,7 +53,6 @@ const CreateNewP = () => {
                         <option>Garden Hall</option>
                         <option>Villa</option>
                     </select>
-
                 </div>
 
                 <div className="mb-3">
@@ -125,6 +124,7 @@ const CreateNewP = () => {
                         className="form-control"
                         area-described-by="ownercontact-info"></input>
                 </div>
+
                 <div className="mb-3">
                     <label htmlFor="furniture" className="form-label">Is furniture avilable?</label>
                     <select
@@ -137,11 +137,10 @@ const CreateNewP = () => {
                         <option>No</option>
                     </select>
                 </div>
+
                 <button type="submit" className="btn btn-primary">Submit</button>
-
-
             </form>
         </div>
     );
 }
-export default CreateNewP;
+export default CreateAdvertisement;

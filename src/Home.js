@@ -32,7 +32,7 @@ const Home = () => {
                                 <h3 className="card-title" >{prop.sorr}</h3>
                                 <p> &#8377; {prop.price} </p>
 
-                                <Link to={`/editProp/${prop._id}`} className="btn btn-secondary" > Contect Owner </Link>
+                                <Link to={`/showAdvertisement/${prop._id}`} className="btn btn-secondary" > Contect Owner </Link>
                             </div>
                         </div>
                     )
