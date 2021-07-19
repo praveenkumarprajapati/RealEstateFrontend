@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { getAdvertisement } from './api'
 
-
-
-const Home = () => {
-    const [state, setState] = useState([]);
-
-    useEffect(() => {
-        const findItems = async () => {
-            const adds = await getAdvertisement()
-            setState(adds)
-        }
-        findItems()
-    }, []);
-
+const AllAdvertisements = ({ advertisements }) => {
 
     return (
-        <div className="container bg-light p-5">
+        <div className="container bg-light p-5" id="allAdd">
             <h3> All Advertisements</h3>
             <div className="grid">
-
                 {
-                    state.map((prop) => (
+                    advertisements.map((prop) => (
                         <div className="card p-3 m-3" key={prop._id}>
                             <div className="card-body">
                                 <h4 className="card-title">{prop.name}</h4>
@@ -39,9 +25,8 @@ const Home = () => {
                     )
                 }
             </div>
-
         </div>
     );
 }
 
-export default Home;
+export default AllAdvertisements;

@@ -1,0 +1,19 @@
+.welcome {
+  background: rgb(251, 255, 0);
+}
+
+.myButton {
+  padding: 5px 30px;
+  font-size: 25px;
+  border: 5px solid rgb(255, 0, 0);
+  outline: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0);
+  transition: color 0.5s ease;
+}
+
+.myButton:hover {
+  font-size: 25px;
+  background: rgb(255, 0, 0);
+  color: white;
+}
