@@ -7,7 +7,7 @@ const AllAdvertisements = ({ advertisements }) => {
 
     return (
         <div className="container bg-light p-5" id="allAdd">
-            <h3> All Advertisements</h3>
+            <h3> Properties Available</h3>
             <div className="grid">
                 {
                     advertisements.map((prop) => (
