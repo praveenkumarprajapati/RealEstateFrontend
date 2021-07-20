@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useRouteMatch } from 'react-router-dom';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 
 
 //Material
@@ -13,6 +13,7 @@ const ShowAdvertisement = ({ props }) => {
     const match = useRouteMatch()
     const id = match.params.id;
     const [advertise, setState] = useState([]);
+    const history = useHistory()
 
     useEffect(() => {
         axios.get(`http://localhost:8000/add/${id}`)
@@ -23,10 +24,23 @@ const ShowAdvertisement = ({ props }) => {
             .catch((err) => console.log("Erroe by me", err))
     }, [id]);
 
-    const editClicked = () => {
-        alert("Heloo");
+    const deleteClicked = () => {
+        axios.delete(`http://localhost:8000/${advertise._id}`).then(res => {
+            alert("Deleted SuccessFully")
+            history.push('/')
+        }).catch(err => {
+            history.push('/')
+        })
     }
+
     if (advertise) {
+        let furniture;
+        if (advertise.furniture === "Yes") {
+            furniture = <span className="display-6">Furniture Available</span>
+        }
+        else {
+            furniture = <span className="display-6">Furniture Not Available</span>
+        }
         return (
             <div className="container">
                 <div className="bg-dark text-light d-flex flex-column p-5 my-5">
@@ -34,6 +48,10 @@ const ShowAdvertisement = ({ props }) => {
                         <div className="d-flex flex-column">
                             <h3 className="h3">{advertise.type} <small>at</small> {advertise.address}</h3>
                             <h6>Available for <span> {advertise.sorr}</span></h6>
+                            <h1 className="display-1 text-success" ><span className="display-6">&#8377;</span>{advertise.price}.00 </h1>
+                            <span className="display-6">Size <span className="badge bg-warning p-1">{advertise.size} Sq Feet</span></span>
+                            {furniture}
+
                         </div>
                         <div className="">
                             <img width="400px" alt="Property" src="https://source.unsplash.com/260x160/?house,flat" />
@@ -46,6 +64,7 @@ const ShowAdvertisement = ({ props }) => {
                     </div>
                     <div className="d-flex flex-row justify-center">
                         <Button
+                            onClick={() => { deleteClicked() }}
                             variant="contained"
                             color="secondary"
                             className="m-3"
@@ -53,7 +72,7 @@ const ShowAdvertisement = ({ props }) => {
                             <DeleteOutlinedIcon />
                         </Button>
                         <Button
-                            onclick={{ editClicked }}
+
                             variant="contained"
                             color="primary"
                             className="m-3"
@@ -62,11 +81,13 @@ const ShowAdvertisement = ({ props }) => {
                         </Button>
                     </div>
                 </div>
-            </div>
+            </div >
         );
     } else {
         return (
-            <h3> Advertisement Not Available with provided id</h3>
+            <div className="container p-5 m-5 d-flex justify-content-center align-items-center">
+                <h3 className="display-4"> :( Advertisement Not Available</h3>
+            </div>
         )
     }
 }

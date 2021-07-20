@@ -10,7 +10,7 @@ const CreateAdvertisement = () => {
     const history = useHistory();
 
     const onSubmit = handleSubmit((advertisement) => {
-        axios.post("http://localhost:8000/newAdd",
+        axios.post("http://localhost:8000/create",
             JSON.stringify(advertisement), {
             "headers": {
                 "content-type": "application/json"
@@ -20,7 +20,7 @@ const CreateAdvertisement = () => {
         }).then((msg) => {
             history.push("/")
         }).catch((err) => {
-            console.log(err)
+            alert("Erro While Connecting to server");
         })
     });
 

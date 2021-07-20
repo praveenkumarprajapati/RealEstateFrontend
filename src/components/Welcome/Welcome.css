@@ -22,6 +22,6 @@
 
 .myButton:hover {
   font-size: 25px;
-  background: rgb(213, 196, 245);
+  background: rgba(213, 196, 245, 0.74);
   color: rgb(0, 0, 0);
 }

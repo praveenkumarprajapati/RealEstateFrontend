@@ -32,7 +32,13 @@ const Home = () => {
         )
     } else {
         return (
-            <h3>Error</h3>
+            <Fragment>
+                <Welcome />
+                <div className="container d-flex m-5 p-6 justify-content-center align-items-center">
+                    <h3>No Advertisements</h3>
+                </div>
+            </Fragment>
+
         )
     }
 
