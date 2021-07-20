@@ -35,7 +35,7 @@ const Home = () => {
             <Fragment>
                 <Welcome />
                 <div className="container d-flex m-5 p-6 justify-content-center align-items-center">
-                    <h3>No Advertisements</h3>
+                    <h3>No Advertisements to show</h3>
                 </div>
             </Fragment>
 
