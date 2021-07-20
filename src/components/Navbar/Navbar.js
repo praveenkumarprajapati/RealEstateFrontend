@@ -12,6 +12,9 @@ const Navbar = () => {
                 <li className="navbar-item mx-4 h6">
                     <Link to="/createAdvertisement" className="nav-link">Create New</Link>
                 </li>
+                <li className="navbar-item mx-4 h6">
+                    <a href="#allAdd" className="nav-link">Advertisements</a>
+                </li>
             </ul>
         </nav>
     );

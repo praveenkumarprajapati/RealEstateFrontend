@@ -7,6 +7,7 @@ import { useRouteMatch, useHistory, Link } from 'react-router-dom';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
+import { getAdvertisementById } from '../../Api/api';
 
 
 const ShowAdvertisement = ({ props }) => {
@@ -16,12 +17,14 @@ const ShowAdvertisement = ({ props }) => {
     const history = useHistory()
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/add/${id}`)
-            .then(res => {
-                console.log(res.data)
-                setState(res.data)
-            })
-            .catch((err) => console.log("Erroe by me", err))
+        (
+            async () => {
+                const a = await getAdvertisementById(id)
+                console.log("After waiting ", a)
+                setState(a);
+            }
+        )()
+
     }, [id]);
 
     const deleteClicked = () => {
@@ -75,8 +78,7 @@ const ShowAdvertisement = ({ props }) => {
                         >
                             <DeleteOutlinedIcon />
                         </Button>
-                        <Link to="/editAdvertisement/:id">
-
+                        <Link to={`/editAdvertisement/${advertise._id}`}>
                             <Button
                                 onClick={() => { editClicked() }}
                                 variant="contained"

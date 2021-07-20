@@ -6,6 +6,9 @@ import Home from './../components/Home/Home';
 import CreateAdvertisement from './../components/CreateAdvertisement/CreateAdvertisement';
 import ShowAdvertisement from './../components/ShowAdvertisement/ShowAdvertisement';
 import Navbar from './../components/Navbar/Navbar'
+import EditAdvertisement from './../components/EditAdvertisement/EditAdvertisement'
+
+
 const Routes = () => {
 
     return (
@@ -20,6 +23,9 @@ const Routes = () => {
                 </Route>
                 <Route path="/showAdvertisement/:id">
                     <ShowAdvertisement />
+                </Route>
+                <Route path="/editAdvertisement/:id">
+                    <EditAdvertisement />
                 </Route>
             </Switch>
         </Fragment>
