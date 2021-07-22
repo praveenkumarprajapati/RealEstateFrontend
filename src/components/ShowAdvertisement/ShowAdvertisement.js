@@ -27,12 +27,15 @@ const ShowAdvertisement = ({ props }) => {
 
     }, [id]);
 
+
+
     const deleteClicked = () => {
         axios.delete(`http://localhost:8000/${advertise._id}`).then(res => {
             alert("Deleted SuccessFully")
-            history.push('/')
+            setTimeout(() => history.push('/'), 1000)
+
         }).catch(err => {
-            history.push('/')
+            setTimeout(() => history.push('/'), 1000)
         })
     }
 

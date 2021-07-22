@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios'
-import { toast, ToastContainer } from 'react-toastify';
 
 import './../CreateAdvertisement/CreateAdvertisement.css'
 
@@ -23,14 +22,16 @@ const EditAdvertisement = ({ advertiseToEdit }) => {
                 const a = await getAdvertisementById(id)
                 console.log("After waiting ", a)
                 setState(a);
+
             }
         )()
     }, [id]);
 
     const onSubmit = handleSubmit(async (advertisement) => {
         try {
-            const add = await axios.put(`http://localhost:8000/updateById/${state._id}`, advertisement);
+            await axios.put(`http://localhost:8000/${state._id}`, advertisement);
             alert("Sucessfully Updated")
+            history.push(`/showAdvertisement/${id}`);
 
         } catch (err) {
             console.log(err)
@@ -47,7 +48,6 @@ const EditAdvertisement = ({ advertiseToEdit }) => {
         else {
             return (
                 <div className="container-fluid bg-secondary d-flex flex-column justify-content-center align-items-center py-5 body-style">
-                    <ToastContainer />
                     <div className="shadow rounded text-light form-style">
                         <h3 className="h-3 p-4">Update Advertisement</h3>
                         <form onSubmit={onSubmit} className="shadow p-4">

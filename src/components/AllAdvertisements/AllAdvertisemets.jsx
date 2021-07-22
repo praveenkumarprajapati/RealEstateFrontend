@@ -15,8 +15,8 @@ const AllAdvertisements = ({ advertisements }) => {
             <div className="row container text-dark">
                 {
                     advertisements.map((prop) => (
-                        <div className="col col-lg-6 col-xl-4 col-12">
-                            <div className="card p-3 m-2" key={prop._id}>
+                        <div className="col col-lg-6 col-xl-4 col-12" key={prop._id}>
+                            <div className="card p-3 m-2" >
                                 <div className="card-body">
                                     <div className="d-flex justify-content-between">
                                         <h4 className="card-title">{prop.name}</h4>

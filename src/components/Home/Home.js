@@ -17,7 +17,6 @@ const Home = () => {
         }
         try {
             findItems()
-            console.log("findItems")
         } catch (err) {
             console.log(err)
         }

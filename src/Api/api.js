@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 //Getting all Advertisements
-export const getAdvertisement = () => fetch("http://localhost:8000/getAllAdvertisemets").then((fetched) => {
+export const getAdvertisement = () => fetch("http://localhost:8000/").then((fetched) => {
     if (fetched.ok) {
         return fetched.json()
     }
@@ -12,7 +12,7 @@ export const getAdvertisement = () => fetch("http://localhost:8000/getAllAdverti
 
 //Creating new Advertisement
 export const createAdvertisement = advertisement => {
-    axios.post("http://localhost:8000/create",
+    axios.post("http://localhost:8000/",
         JSON.stringify(advertisement), {
         "headers": {
             "content-type": "application/json"
@@ -29,7 +29,7 @@ export const createAdvertisement = advertisement => {
 //Getting Advertisement of specific id
 export const getAdvertisementById = async id => {
     try {
-        return await axios.get(`http://localhost:8000/add/${id}`).then((res) => {
+        return await axios.get(`http://localhost:8000/${id}`).then((res) => {
             return res.data
         })
     } catch (err) {

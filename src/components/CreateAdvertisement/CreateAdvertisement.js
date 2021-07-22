@@ -11,7 +11,7 @@ const CreateAdvertisement = () => {
     const history = useHistory();
 
     const onSubmit = handleSubmit((advertisement) => {
-        axios.post("http://localhost:8000/create",
+        axios.post("http://localhost:8000/",
             JSON.stringify(advertisement), {
             "headers": {
                 "content-type": "application/json"
@@ -25,7 +25,9 @@ const CreateAdvertisement = () => {
         })
     });
 
+
     return (
+
         <div className="container-fluid bg-secondary d-flex flex-column justify-content-center align-items-center py-5 body-style">
 
             <div className="shadow rounded text-light form-style">
@@ -71,7 +73,7 @@ const CreateAdvertisement = () => {
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="sorr" className="form-label">Sell or Rent</label>
+                        <label htmlFor="sorr" className="form-label">Property for</label>
                         <select
                             {...register('sorr', { required: true })}
                             name="sorr"
@@ -95,7 +97,7 @@ const CreateAdvertisement = () => {
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="price" className="form-label">Rent Amount</label>
+                        <label id="sorrLabel" htmlFor="price" className="form-label">Amount</label>
                         <input
                             {...register('price', { required: true })}
                             type="number"
@@ -103,7 +105,6 @@ const CreateAdvertisement = () => {
                             id="price"
                             className="form-control"
                             area-described-by="price-info"></input>
-
                     </div>
 
                     <div className="mb-3">
